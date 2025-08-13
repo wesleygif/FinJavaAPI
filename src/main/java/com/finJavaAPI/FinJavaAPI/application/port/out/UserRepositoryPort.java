@@ -6,5 +6,4 @@ import com.finJavaAPI.FinJavaAPI.domain.entity.User;
 public interface UserRepositoryPort {
     User save(User user);
     User findById(Long id);
-
 }

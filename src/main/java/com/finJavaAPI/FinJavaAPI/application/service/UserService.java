@@ -23,10 +23,11 @@ public class UserService implements UserServicePort {
     public UserDTO createUser(CreateUserRequest request) {
         String hashed = encoder.encode(request.password());
 
-        User newUser = new User(null, request.name(), hashed);
-        User saved = userRepo.save(newUser);
+        User newUser = new User(request.name(), hashed);
+        //TODO Aqui a gente liga no repositório para salvar o usuário
+//        User saved = userRepo.save(newUser);
 
-        return toDTO(saved);
+        return toDTO(newUser);
     }
 
     private UserDTO toDTO(User u) {

@@ -1,7 +1,9 @@
 package com.finJavaAPI.FinJavaAPI.domain.dto;
 
+import java.util.UUID;
+
 public record UserDTO(
-        Long id,
+        UUID id,
         String name,
         String password
 ) {}

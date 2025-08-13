@@ -1,18 +1,20 @@
 package com.finJavaAPI.FinJavaAPI.domain.entity;
 
+import java.util.UUID;
+
 public class User {
-    private final Long id;
+    private final UUID id;
     private final String name;
     private final String passwordHash;
 
-    public User(Long id, String name, String passwordHash) {
-        this.id = id;
+    public User(String name, String passwordHash) {
+        this.id = UUID.randomUUID();
         this.name = name;
         this.passwordHash = passwordHash;
     }
 
     // getters
-    public Long getId() { return id; }
+    public UUID getId() { return id; }
     public String getName() { return name; }
     public String getPasswordHash() { return passwordHash; }
 }
