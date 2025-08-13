@@ -1,0 +1,38 @@
+version: '3.9'
+
+services:
+  db:
+    image: mysql:8.0
+    container_name: finjava_db
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: finjava
+      MYSQL_USER: finjava
+      MYSQL_PASSWORD: finjava123
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+    networks:
+      - finjava-network
+
+  app:
+    build: .
+    container_name: finjava_api
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/finjava
+      SPRING_DATASOURCE_USERNAME: finjava
+      SPRING_DATASOURCE_PASSWORD: finjava123
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+    depends_on:
+      - db
+    networks:
+      - finjava-network
+
+volumes:
+  db_data:
+
+networks:
+  finjava-network:
