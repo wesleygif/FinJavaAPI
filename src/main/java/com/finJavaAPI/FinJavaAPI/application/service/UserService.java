@@ -25,7 +25,7 @@ public class UserService implements UserServicePort {
 
         User newUser = new User(request.name(), hashed);
         //TODO Aqui a gente liga no repositório para salvar o usuário
-//        User saved = userRepo.save(newUser);
+        User saved = userRepo.save(newUser);
 
         return toDTO(newUser);
     }
