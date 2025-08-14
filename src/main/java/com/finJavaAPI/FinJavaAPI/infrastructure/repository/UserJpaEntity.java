@@ -1,9 +1,6 @@
 package com.finJavaAPI.FinJavaAPI.infrastructure.repository;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Data;
 
 import java.util.UUID;
@@ -13,12 +10,12 @@ import java.util.UUID;
 public class UserJpaEntity {
 
     @Id
-    @GeneratedValue(strategy =  GenerationType.UUID)
+    @GeneratedValue
+    @Column(columnDefinition = "CHAR(36)")
     private UUID id;
 
     private String name;
 
     private String passwordHash;
-
 
 }
