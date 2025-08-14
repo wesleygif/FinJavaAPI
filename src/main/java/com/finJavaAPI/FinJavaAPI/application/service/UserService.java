@@ -23,7 +23,7 @@ public class UserService implements UserServicePort {
     public UserDTO createUser(CreateUserRequest request) {
         String hashed = encoder.encode(request.password());
 
-        User newUser = new User(request.name(), hashed);
+        User newUser = new User(java.util.UUID.randomUUID(), request.name(), hashed);
         //TODO Aqui a gente liga no repositório para salvar o usuário
         User saved = userRepo.save(newUser);
 

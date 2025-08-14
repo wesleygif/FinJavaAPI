@@ -1,41 +1,24 @@
 package com.finJavaAPI.FinJavaAPI.infrastructure.repository;
 
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import lombok.Data;
 
 import java.util.UUID;
 
+@Entity
+@Data
 public class UserJpaEntity {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy =  GenerationType.UUID)
     private UUID id;
 
     private String name;
 
-    private Long password;
+    private String passwordHash;
 
-    public UUID getId() {
-        return id;
-    }
 
-    public Long getPassword() {
-        return password;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setId(UUID id) {
-        this.id = id;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setPassword(Long password) {
-        this.password = password;
-    }
 }
