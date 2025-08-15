@@ -2,8 +2,8 @@ package com.finJavaAPI.FinJavaAPI.application.service;
 
 import com.finJavaAPI.FinJavaAPI.application.port.in.UserServicePort;
 import com.finJavaAPI.FinJavaAPI.application.port.out.UserRepositoryPort;
-import com.finJavaAPI.FinJavaAPI.domain.dto.CreateUserRequest;
-import com.finJavaAPI.FinJavaAPI.domain.dto.UserDTO;
+import com.finJavaAPI.FinJavaAPI.domain.dto.user.CreateUserRequest;
+import com.finJavaAPI.FinJavaAPI.domain.dto.user.UserDTO;
 import com.finJavaAPI.FinJavaAPI.domain.entity.User;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;

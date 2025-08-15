@@ -1,4 +1,4 @@
-package com.finJavaAPI.FinJavaAPI.domain.dto;
+package com.finJavaAPI.FinJavaAPI.domain.dto.user;
 
 public record CreateUserRequest (
         String name,

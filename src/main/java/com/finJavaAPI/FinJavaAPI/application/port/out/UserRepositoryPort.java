@@ -1,6 +1,5 @@
 package com.finJavaAPI.FinJavaAPI.application.port.out;
 
-import com.finJavaAPI.FinJavaAPI.domain.dto.UserDTO;
 import com.finJavaAPI.FinJavaAPI.domain.entity.User;
 
 import java.util.List;

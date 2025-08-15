@@ -1,7 +1,8 @@
-package com.finJavaAPI.FinJavaAPI.infrastructure.repository;
+package com.finJavaAPI.FinJavaAPI.infrastructure.repository.adapter;
 
 import com.finJavaAPI.FinJavaAPI.application.port.out.UserRepositoryPort;
 import com.finJavaAPI.FinJavaAPI.domain.entity.User;
+import com.finJavaAPI.FinJavaAPI.infrastructure.repository.UserJpaEntity;
 import com.finJavaAPI.FinJavaAPI.infrastructure.repository.interfaces.UserJpaRepository;
 import org.springframework.stereotype.Repository;
 
