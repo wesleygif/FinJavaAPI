@@ -5,6 +5,9 @@ import com.finJavaAPI.FinJavaAPI.domain.entity.User;
 import com.finJavaAPI.FinJavaAPI.infrastructure.repository.interfaces.UserJpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Repository
 public class UserRepositoryAdapter implements UserRepositoryPort {
 
@@ -27,5 +30,13 @@ public class UserRepositoryAdapter implements UserRepositoryPort {
     public User findById(Long id) {
         // Adapte para UUID conforme necessário
         return null;
+    }
+
+    @Override
+    public List<User> getAll() {
+        List<UserJpaEntity> entities = userJpaRepository.findAll();
+        return entities.stream()
+                .map(entity -> new User(entity.getId(), entity.getName(), entity.getPasswordHash()))
+                .collect(Collectors.toList());
     }
 }

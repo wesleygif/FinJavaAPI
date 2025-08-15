@@ -9,6 +9,8 @@ import com.finJavaAPI.FinJavaAPI.domain.entity.User;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class UserService implements UserServicePort {
 
@@ -24,11 +26,20 @@ public class UserService implements UserServicePort {
         String hashed = encoder.encode(request.password());
 
         User newUser = new User(java.util.UUID.randomUUID(), request.name(), hashed);
-        //TODO Aqui a gente liga no repositório para salvar o usuário
+
         User saved = userRepo.save(newUser);
 
         return toDTO(newUser);
     }
+
+    @Override
+    public List<UserDTO> listAll() {
+        return userRepo.getAll().stream()
+                .map(this::toDTO)
+                .toList();
+    }
+
+
 
     private UserDTO toDTO(User u) {
         return new UserDTO(u.getId(), u.getName(), u.getPasswordHash());

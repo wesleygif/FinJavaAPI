@@ -10,8 +10,8 @@ import java.util.UUID;
 public class UserJpaEntity {
 
     @Id
-    @GeneratedValue
-    @Column(columnDefinition = "CHAR(36)")
+    @GeneratedValue(strategy = GenerationType.UUID)
+    @Column(columnDefinition = "BINARY(16)")
     private UUID id;
 
     private String name;
