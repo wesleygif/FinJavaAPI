@@ -7,13 +7,12 @@ public class User {
     private final String name;
     private final String passwordHash;
 
-    public User(String name, String passwordHash) {
-        this.id = UUID.randomUUID();
+    public User(UUID id, String name, String passwordHash) {
+        this.id = id;
         this.name = name;
         this.passwordHash = passwordHash;
     }
 
-    // getters
     public UUID getId() { return id; }
     public String getName() { return name; }
     public String getPasswordHash() { return passwordHash; }
